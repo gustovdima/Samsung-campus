@@ -1,0 +1,171 @@
+Задачи на  for:
+
+1. Вам необходимо написать программу, которая по заданному с клавиатуры числу N напечатает таблицу умножения на данное число, например,
+для N=2, программа должна выводить следующую информацию: 2*1=2; 2*2=4; 2*3=6; 2*4=8; 2*5=10; 2*6=12; 2*7=14; 2*8=16; 2*9=18; 2*10=20
+
+        Scanner scan = new Scanner(System.in);
+        
+        int x = scan.nextInt();
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(i + " x " + x + " = " + (i*x));
+        }
+        
+2. Даны два целых числа A и B. Необходимо вывести все нечетные числа на отрезке от А до B
+Входные данные: На вход программе подаются два целых числа A и B (A≤B), по одному в строке
+Выходные данные: Вывести через пробел все нечетные числа на заданном отрезке
+
+        Scanner scan = new Scanner(System.in);
+        int a = scan.nextInt(),b= scan.nextInt();
+        for(int i=a;i<=b;i++){
+            if(i%2!=0){
+                System.out.println(i + " ");
+            }
+        }
+        
+        
+3. Дано натуральное число n. Напечатайте все n-значные нечетные натуральные числа в порядке убывания.
+
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        for(int i=n;i>0;i--){
+            if(i%2 != 0){
+                System.out.println(i + " ");
+            }
+        }
+        
+4. Напишите программу, которая находит сумму квадратов целых чисел от a до b (a и b вводятся с клавиатуры)
+
+        Scanner scan = new Scanner(System.in);
+        int a = scan.nextInt(),b= scan.nextInt();
+        int sum = 0;
+        for(int i = a; i<=b;i++){
+            sum+=i*i;
+        }
+        System.out.println(sum);
+        
+        
+5. По целому натуральному числу N вычислите N! ("эн-факториал") – произведение всех натуральных чисел от 1 до N (N!=1⋅2⋅3⋅…⋅N ).
+
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        int fact = 1;
+        for(int i = 1;i<=n;i++){
+            fact*=i;
+        }
+        System.out.println(fact);
+
+
+6. По данному натуральному n≥2 вычислите сумму 1×2+2×3+...+(n-1)×n. Ответ выведите в виде вычисленного выражения и его значения в точности,
+как показано в примере: ввод - 4, вывод - 1*2+2*3+3*4=20
+
+        Scanner scan = new Scanner(System.in);
+        int x = scan.nextInt();
+        int sum = 0;
+        for(int i = 1;i<=x;i++){
+            int b = (i-1)*i;
+            sum+=b;
+        }
+        System.out.println(sum);
+        
+        
+7. Вывести ряд чисел от 0 до N в виде: 0 -1 2 -3 4 -5 6 -7 8 ... N
+
+
+ int  n = scan.nextInt();
+    for (int i = 0; i <= n; i++){
+      System.out.println(i * - 1);
+    }
+    
+8. Вывести ряд чисел с формулой общего члена i в степени i: 1 4 27 256 3125 (т.е. 1^1 2^2 3^3 4^4 5^5). Не использовать встроенные функции для расчета степени
+
+
+    Scanner scan = new Scanner(System.in);
+    int  n = scan.nextInt();
+    for (int i = 1; i <= n; i++){
+      int count = 1;
+      for (int j = 0; j < i; j++){
+        count *= i;
+      }
+      System.out.println(count);
+    }
+
+
+9.  Вывести (для n введенного с клавиатуры):
+*
+* *
+* * *
+* * * *
+* * * * *
+
+for( int i = 1; i <= 5; i++ ){
+            for( int j = 0; j < i; j++ ){
+                System.out.print("*");
+
+            }
+            System.out.println();
+        }
+ 
+ 
+ 
+10. Вывести (для n введенного с клавиатуры):
+* * * * *
+* * * *
+* * * 
+* *
+*
+
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        for( int i = 1; i <= n; i++ ){
+            for( int j = i; j <= n; j++ ){
+                System.out.print("* ");
+
+            }
+            System.out.println();
+        }
+        
+        
+11. Вывести (для n введенного с клавиатуры):
+* * * * *
+  * * * *
+     * * *
+       * * 
+          *
+          
+         
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        for(int i = 1;i<=n;i++){
+            for(int j =1;j<=i;j++){
+                System.out.print(" ");
+            }
+            for(int j =i;j<=n;j++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+
+12.
+
+    *
+   * *
+  * * *
+ * * * *
+* * * * *
+
+
+        Scanner scan = new Scanner(System.in);
+
+        int n = scan.nextInt();
+        for(int i = 1;i<=n;i++){
+            for(int j =i;j<=n;j++){
+                System.out.print(" ");
+            }
+            for(int j =1;j<=i;j++){
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+
+/-/-/-/-/-/-/-//-/-/-/-/-/-/-//-/-/-/-/-///-/-//-/-/-/-/-/-/-/-/-/-/-/-/////////////-/-/-/-/-/-/-/---------------------/////////////////////////////////////////////
