@@ -1,1 +1,157 @@
 Задачи на строки:
+
+
+1. Ввести с клавиатуры символьную строку и определить, сколько в ней слов. Словом считается последовательности непробельных символов,
+отделенная с двух сторон пробелами (или стоящая с краю строки). Слова могут быть разделены несколькими пробелами,
+в начале и в конце строки тоже могут быть пробелы.
+
+
+        Scanner scan = new Scanner(System.in);
+        String[] str = scan.nextLine().split(" ");
+        System.out.println("Найдено слов: " + str.length);
+        
+        
+2. Дана строка, в которой буква h встречается минимум два раза.
+Удалите из этой строки первое и последнее вхождение буквы h, а также все символы,находящиеся между ними.
+
+        Scanner scan = new Scanner(System.in);
+        String str = scan.nextLine();
+        int a = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == 'h') {
+                a = i;
+                break;
+            }
+        }
+        int b = 0;
+        for (int j = str.length() - 1; j > 0; j--) {
+            if (str.charAt(j) == 'h') {
+                b = j;
+                break;
+            }
+
+        }
+        System.out.print(str.substring(0, a) + str.substring(b + 1));
+
+
+3. Вводится три слова подряд - фамилия имя отчество (все маленькими буквами). Вывести в формате "Фамилия И.О." (Фамилия и инициалы, все начинается с большой буквы
+
+        Scanner scanner = new Scanner(System.in);
+        
+        String[] str = scanner.nextLine().split(" ");
+        String arrays = Arrays.toString(str);
+        if (arrays.equals(arrays.toLowerCase())) {
+            System.out.println(str[0].substring(0, 1).toUpperCase() + str[0].substring(1) + " "
+                    + str[1].substring(0, 1).toUpperCase() + "." + str[2].substring(0, 1).toUpperCase() + ".");
+        }
+        
+
+4. Ввести с клавиатуры символьную строку и найдите самое длинное слово и его длину.
+Словом считается последовательности непробельных символов, отделенная с двух сторон пробелами (или стоящая с краю строки).
+Слова могут быть разделены несколькими пробелами, в начале и в конце строки тоже могут быть пробелы
+
+        Scanner scan = new Scanner(System.in);
+        String[] str = scan.nextLine().split(" ");
+        String temp = " ";
+        for (int i = 0; i < str.length; i++) {
+
+            if (str[i].length() >= temp.length()) {
+                temp = str[i];
+            }
+        }
+        System.out.println(temp);
+        System.out.println("длина слова " + temp.length());
+        
+        
+5. На вход подается одна строка текста (не больше 255 символов). Нужно вывести эту же строку,
+удалив все парные пробелы (то есть, если где-то в строке идет подряд 2 или больше пробелов, то в этом месте нужно оставить только один из них).
+Ввод: "My name is Vasya..." Вывод: "My name is Vasya..."
+
+
+        Scanner scan = new Scanner(System.in);
+        String str = scan.nextLine();
+        String space = str.replaceAll("\s+", " ");
+        if (str.length() <= 255) {
+            System.out.println(space);
+        }
+
+6. Дана строка, представляющая собой адрес URL. Части URL разделяются знаком / или //. 
+Необходимо разобрать строку URL на части и вывести каждую часть с новой строки 
+Ввод: http://chelyabinsk.74.ru/text/newsline/258041618673664.html 
+Вывод: http: chelyabinsk.74.ru text newsline 258041618673664.html
+
+
+        Scanner scan = new Scanner(System.in);
+        String str = scan.next();
+        System.out.println(str.replaceAll("/", " "));
+        
+        
+7. (Пароль называется криптостойким, если он включает в себя и строчные латинские буквы, и заглавные латинские буквы,
+и цифры, при этом его длина должна быть не менее 8 символов. Требуется по данному паролю определить, является ли он криптостойким.
+
+
+        Scanner scan = new Scanner(System.in);
+        String str = scan.nextLine();
+        char ch;
+        boolean hasDigit = str.matches(".\d+.");
+        char[] array = str.toCharArray();
+        int t = 0, d = 0;
+        if (str.length() >= 8) {
+            for (char x : array) {
+                if (Character.isUpperCase(x)) {
+                    t = 1;
+                }
+            }
+            for (int i = 0; i < str.length(); i++) {
+                ch = str.charAt(i);
+                if (Character.isLowerCase(ch)) {
+                    d = 1;
+                }
+            }
+            if (t == 1 && d == 1 && hasDigit == true) {
+                System.out.println("пароль криптостойкий");
+            } else {
+                System.out.println("Пароль не является криптостойким");
+            }
+        } else {
+            System.out.println("Пароль слишком короткий");
+        }
+        
+        
+8. С клавиатуры вводится email. Вывести YES если это валидный email, и NO если нет. В email должен быть знак @б перед ним должна быть строка длиной от 1 символа.
+После @ должна идти строка длиной от 1 символа до знака точка. Причем после @ может быть несколько знаков точки.
+Но после последней точки должна быть строка длиной не менее 2 символа. Для всего email доступны только буквы, цифры и знак подчеркивания.
+Валидно: qwe@mail.ru, невалидно: @mail.ru, qwe.mail.ru, qwe@mail, qwe@mail.r, qwe@mail@ru
+
+
+        Scanner scan = new Scanner(System.in);
+        String str = scan.next();
+        int s = 0;
+        int t = 0;
+        s = str.indexOf("@");
+        t = str.indexOf(".");
+        if (s >= 1 && t - s - 1 >= 1 && str.length() - 1 - t >= 2) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
+        }
+
+
+9. Ввести с клавиатуры символьную строку и заменить в ней все буквы «a» на «b» и все буквы «b» на «a» (заглавные на заглавные, строчные на строчные). 
+Ввод: aabbAABBccCC Вывод: bbaaBBAAccCC
+
+
+        Scanner scan = new Scanner(System.in);
+        String str = scan.nextLine();
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == 'a') {
+                System.out.print('b');
+            } else if (str.charAt(i) == 'b') {
+                System.out.print('a');
+            } else if (str.charAt(i) == 'A') {
+                System.out.print('B');
+            } else if (str.charAt(i) == 'B') {
+                System.out.print('A');
+            }
+        }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
