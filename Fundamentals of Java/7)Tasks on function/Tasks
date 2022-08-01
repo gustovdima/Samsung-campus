@@ -1,1 +1,397 @@
 Задачи на функции:
+
+1. Создайте функцию, принимающую массив интов, которая подсчитает количество элементов массива, больших предыдущего (элемента с предыдущим номером)
+
+
+static void numberofelements ( int[] arr){
+            int counter = 0;
+            for (int i = 1; i < arr.length; i++) {
+                if (arr[i] > arr[i - 1]) {
+                    counter++;
+                }
+            }
+            System.out.println(counter);
+        }
+        
+        public static void main (String[]args){
+            Scanner scan = new Scanner(System.in);
+            int[] x = {1, 2, 3, 4, 5, 6, 7, 8};
+            numberofelements(x);
+        }
+
+
+2. Дан массив, упорядоченный по неубыванию элементов в нем {1, 1, 2, 3, 3, 3, 3, 4, 4}. 
+Напишите функцию, принимающую такой массив, и возвращающую кол-во различных элементов в нем: int getDistinctCount(int[] arr
+
+
+static void sp ( int[] arr){
+            int counter = 1;
+            for (int i = 0; i < arr.length; i++) {
+                for (int j = 0; j < arr[i]; j++) {
+                    if (arr[i] != arr[j] && arr[i] != arr[i - 1]) {
+                        counter++;
+                        break;
+                    }
+                }
+            }
+            System.out.println(counter);
+        }
+        
+        public static void main (String[]args){
+            Scanner scan = new Scanner(System.in);
+            int[] arr = {1, 1, 2, 3, 3, 3};
+            sp(arr);
+        }
+        
+3. Создайте функцию, которая выводит одномерный массив интов: void output(int[] arr
+
+static void output ( int[] arr){
+            for (int x : arr) {
+                System.out.print(x + " ");
+            }
+        }
+        
+        public static void main (String[]args){
+            int[] arr = {1, 12, 123, 1234, 12345};
+            output(arr);
+        } 
+
+
+4. Создайте функцию, которая генерирует одномерный массив интов на n элементов: int[] getRandArr(int n)
+
+
+static void getRandArr ( int n){
+            int[] arr = new int[n];
+            Random rand = new Random();
+            for (int i = 0; i < arr.length; i++) {
+                arr[i] = rand.nextInt(0, n);
+                System.out.print(arr[i] + " ");
+            }
+        }
+        
+        public static void main (String[]args){
+            Scanner scan = new Scanner(System.in);
+            int x = scan.nextInt();
+            getRandArr(x);
+        }
+        
+        
+5. Создайте функцию, которая принимает массив интов, и возвращает true если массив является строго возрастающей последовательностью, и false в обратном случае
+
+
+ static void revive ( int[] m){
+            boolean b = true;
+            for (int i = 1; i < m.length; i++) {
+                if (m[i] <= m[i - 1]) {
+                    b = false;
+                    break;
+                }
+            }
+            System.out.println(b);
+        }
+        
+        public static void main (String[]args){
+            Scanner scan = new Scanner(System.in);
+            int[] arr = {1, 2, 3, 4, 5, 6, 7, 45, 9, 10};
+            revive(arr);
+        }
+
+
+
+6. Создайте функцию, которая принимает массив интов и заменяет каждый элемент с нечётным индексом на ноль.
+Выведите получившийся массив функцией output. void changeNegativeIndexByZero(int[] arr) - функция должна быть воидовская!!!
+
+
+void changeNegative ( int[] arr){
+            for (int i = 0; i < arr.length; i++) {
+                if (arr[i] % 2 != 0) {
+                    arr[i] = 0;
+                }
+                System.out.print(arr[i] + " ");
+            }
+        }
+        
+        public static void main (String[]args){
+            int[] arr = {1, 2, 3, 4};
+            new lesson1().changeNegative(arr);
+        }
+
+
+7. Создайте функцию, которая генерирует массив на n элементов, и заполняет его числами Фибоначчи. Напоминаем, 
+что первый и второй члены последовательности равны единицам, а каждый следующий — сумме двух предыдущих: 1 1 2 3 5 8 13 21 34 55 ...
+
+
+static void fib ( int[] arr){
+            arr[0] = 1;
+            arr[1] = 0;
+            for (int i = 2; i < arr.length; i++) {
+                arr[i] = arr[i - 1] + arr[i - 2];
+                System.out.println(arr[i]);
+            }
+        }
+        public static void main (String[]args){
+            Scanner scan = new Scanner(System.in);
+            int n = scan.nextInt();
+            int[] arr = new int[n];
+            fib(arr);
+        }
+        
+        
+8. Напишите функцию, которая определяет является ли пароль криптостойким. Пароль называется криптостойким, если он включает в себя и строчные латинские буквы, 
+и заглавные латинские буквы, и цифры, при этом его длина должна быть не менее 8 символов: boolean isEncrypted(String password)
+
+
+static void password (String password){
+            boolean result = false;
+            if (password.length() > 8) {
+                for (int i = 0; i < password.length(); i++) {
+                    char ch = password.charAt(i);
+                    if (ch >= 'a' && ch <= 'z' || ch >= 'A' && ch <= 'Z' || ch >= '0' && ch <= '9') {
+                        result = true;
+                    }
+                }
+                System.out.println(result);
+            } else {
+                System.out.println("Пароль слишком короткий");
+            }
+        }
+
+        public static void main (String[]args){
+            Scanner scan = new Scanner(System.in);
+            String str = scan.nextLine();
+            password(str);
+        }
+
+
+9. Создайте функцию, которая принимает одну строку, содержащую математическое выражение с любым кол-вом плюсов и минусов (например "52+47-36", или "12-5+32+4").
+Функция должна вернуть результат этого выражения: int calculate(String input)
+
+
+public static void main (String[]args){
+            Scanner scan = new Scanner(System.in);
+            String str = scan.nextLine();
+            int result = calculate(str);
+            System.out.println(result);
+        }
+
+        static int calculate (String input){
+            int result = 0;//154
+            int temp = 0;//81
+            boolean isPlus = true;
+            for (int i = 0; i < input.length(); i++) {
+                char ch = input.charAt(i);
+                if (ch == '+' || ch == '-') {
+                    if (isPlus) {
+                        result += temp;
+                    } else {
+                        result -= temp;
+                    }
+                    temp = 0;
+                    isPlus = (ch == '+');
+                } else {
+                    temp = temp * 10 + Integer.parseInt(ch + "");
+                }
+            }
+            if (isPlus) {
+                result += temp;
+            } else {
+                result -= temp;
+            }
+            return result;
+        }
+        
+        
+10. Создайте функцию, которая принимает строку, в которой буква h встречается минимум два раза. 
+Функция Удаляет из этой строки первое и последнее вхождение буквы h, а также все символы, находящиеся между ними: String removeH(String input)
+
+
+static void removeH (String str){
+            int a = 0;
+            for (int i = 0; i < str.length(); i++) {
+                if (str.charAt(i) == 'h') {
+                    a = i;
+                    break;
+                }
+            }
+            int b = 0;
+            for (int j = str.length() - 1; j > 0; j--) {
+                if (str.charAt(j) == 'h') {
+                    b = j;
+                    break;
+                }
+
+            }
+            System.out.print(str.substring(0, a) + str.substring(b + 1));
+        }
+        
+        public static void main (String[]args){
+            Scanner scan = new Scanner(System.in);
+            String str = scan.nextLine();
+            removeH(str);
+        }
+        
+        
+11. Создайте функцию, которая будет генерировать пароль длиной n символов, чтобы в нем были строчные и заглавные буквы, а также цифры: String getRandomPassword(int n)
+
+
+static String getRandomRassword ( int n){
+            String result = "";
+            String str = "ABCDFGHJKLMNPQRSTVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            Random rand = new Random();
+            for (int i = 0; i < n; i++) {
+                int index = rand.nextInt(str.length());
+                char st = str.charAt(index);
+                result += st;
+            }
+            return result;
+        }
+
+        public static void main (String[]args){
+            Scanner scan = new Scanner(System.in);
+            System.out.println("Введите длину пароля ");
+            int x = scan.nextInt();
+            String result = getRandomRassword(x);
+            System.out.println(result);
+        }
+
+
+12. Используя функцию getRandArr(int n) создайте два массива со случайными числами.\
+Создайте функцию, которая принимает два массива интов, и возвращает массив,
+каждый i-ый элемент которого является суммой i-ых элементов двух созданных ранее массивов: int[] sumArrays(int[] arr1, int[] arr2)
+
+
+static void sumArrays ( int[] arr1, int[] arr2){
+            for (int i = 1; i < arr1.length; i++) {
+                for (int j = 1; j < arr2.length; j++) {
+                    arr1[i] += arr2[j];
+                }
+                System.out.println(arr1[i]);
+            }
+        }
+        public static void main (String[] args){
+            Scanner scan = new Scanner(System.in);
+            int n = scan.nextInt();
+            int m = scan.nextInt();
+            int[] arr1 = new int[n];
+            int[] arr2 = new int[m];
+            getRandArr(arr1.length);
+            getRandArr(arr2.length);
+            sumArrays(arr1, arr2);
+        }
+        static void getRandArr ( int n){
+            int[] arr = new int[n];
+            Random rand = new Random();
+            for (int i = 0; i < arr.length; i++) {
+                arr[i] = rand.nextInt(0, n + 1);
+                System.out.print(arr[i] + " ");
+            }
+        }
+        
+        
+13. Создайте функцию, которая считает кол-во четных элементов в одномерном массиве: int countEven(int[] arr)
+
+
+ static void countEven ( int[] arr){
+            int counter = 0;
+            for (int i = 0; i < arr.length; i++) {
+                if (arr[i] % 2 != 0) {
+                    counter++;
+                }
+            }
+            System.out.println("Количество нечетных элементов " + counter);
+        }
+        public static void main (String[]args){
+            int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+            countEven(arr);
+        }
+        
+        
+        
+14. С клавиатуры вводится две строки со временем (например "15:48" и "12:21").
+Напишите функцию, которая принимает две этих строки,
+и возвращает строку с суммой этих всех времен (1д 04:09) : String sumTimes(String time1, String time2)
+
+
+static void time (String time1, String time2){
+            String[] str = time1.split(":");
+            String[] str2 = time2.split(":");
+            int day = 0;
+            int minutes = 0;
+            int hour = 0;
+            if (Integer.parseInt(str[1]) + Integer.parseInt(str2[1]) < 60) {
+                minutes = Integer.parseInt(str[1]) + Integer.parseInt(str2[1]);
+            } else {
+                minutes = Integer.parseInt(str[1]) + Integer.parseInt(str2[1]) - 60;
+                hour = 1;
+            }
+            if (Integer.parseInt(str[0]) + Integer.parseInt(str2[0]) <= 23) {
+                hour = Integer.parseInt(str[0]) + Integer.parseInt(str2[0]);
+            } else {
+                hour = Integer.parseInt(str[0]) + Integer.parseInt(str2[0]) - 23;
+                day = 1;
+            }
+            System.out.println(day + "д " + hour + ":" + minutes);
+        }
+
+        public static void main (String[]args){
+            Scanner scan = new Scanner(System.in);
+            String time1 = scan.nextLine();
+            String time2 = scan.nextLine();
+            time(time1, time2);
+        }
+        
+        
+15. Используя функцию getRandArr(int n) создайте два массива со случайными числами (размерами n и m).
+Напишите функцию, которая выведет те элементы первого массива (в том порядке, в каком они идут в первом массиве),
+которых нет во втором массиве: void printDifference(int[] arr1, int[] arr2)
+
+
+
+static void printDifference ( int n, int m){
+            Scanner scan = new Scanner(System.in);
+            int[] perv = new int[n];
+            int[] vtor = new int[m];
+            getRandArr(perv.length);
+            getRandArr(vtor.length);
+            for (int i = 0; i < n; i++) {
+                int k = scan.nextInt();
+                perv[i] = k;
+            }
+
+            for (int i = 0; i < m; i++) {
+                int h = scan.nextInt();
+                vtor[i] = h;
+            }
+
+
+            int h = 0;
+
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < m; j++) {
+                    if (perv[i] == vtor[j]) {
+                        h = 1;
+                    }
+                }
+                if (h == 0) {
+                    System.out.print(perv[i] + " ");
+                }
+                h = 0;
+            }
+        }
+        public static void main (String[]args){
+            Scanner scan = new Scanner(System.in);
+            int n = scan.nextInt();
+            int m = scan.nextInt();
+            int[] arr1 = new int[n];
+            int[] arr2 = new int[m];
+            printDifference(arr1.length, arr2.length);
+        }
+        static void getRandArr ( int n){
+            int[] arr = new int[n];
+            Random rand = new Random();
+            for (int i = 0; i < arr.length; i++) {
+                arr[i] = rand.nextInt(0, n + 1);
+                System.out.print(arr[i] + " ");
+            }
+        }
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////--------------------------
