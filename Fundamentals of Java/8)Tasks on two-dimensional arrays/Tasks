@@ -1,1 +1,194 @@
 Задачи на двумерные массивы:
+
+
+1. Напишите функцию, генерирующую и возвращающую двумерный массив n на n элементов
+
+static void Gnr ( int n){
+            int result = 0;
+            Random rand = new Random();
+            int[][] arr = new int[n][n];
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    arr[i][j] = rand.nextInt(n);
+                    System.out.println(arr[i][j]);
+                }
+            }
+        }
+        public static void main (String[]args){
+            Scanner scan = new Scanner(System.in);
+            int n = scan.nextInt();
+            Gnr(n);
+        }
+    }
+    
+    
+2. Напишите функцию, принимающую двумерный массив, которая ищет сумму всех элементов двумерного массива
+
+
+static void sum ( int[][] arr){
+            int sum = 0;
+            for (int i = 0; i < arr.length; i++) {
+                for (int j = 0; j < arr[i].length; j++) {
+                    sum += arr[i][j];
+                }
+            }
+            System.out.println("Сумма всех чисел " + sum);
+        }
+
+        public static void main (String[]args){
+            Scanner scan = new Scanner(System.in);
+            int n = scan.nextInt();
+            int[][] arr = new int[n][n];
+            for (int i = 0; i < arr.length; i++) {
+                for (int j = 0; j < arr.length; j++) {
+                    arr[i][j] = scan.nextInt();
+                }
+            }
+            sum(arr);
+        }
+        
+        
+        
+3. Напишите функцию, принимающую двумерный массив, которая ищет в двумерном массиве номер строки, в которой сумма элементов наибольшая
+
+
+Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        int[][] arr = new int[n][n];
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length; j++) {
+                arr[i][j] = scan.nextInt();
+            }
+        }
+        maxsum(arr);
+    }
+
+    static void maxsum(int[][] arr) {
+        int max = 0;
+        int sum = 0;
+        int s = 0;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                sum = sum = arr[i][j];
+            }
+            if (max < sum) {
+                max = sum;
+                s = i;
+            }
+        }
+        System.out.println("индекс суммы максимального числа " + s);
+    }
+
+
+
+4. Напишите функцию, принимающую двумерный массив, которая ищет в двумерном массиве сумму элементов выше главной диагонали
+
+
+ public static void main (String[]args){
+            Scanner scan = new Scanner(System.in);
+            int n = scan.nextInt();
+            int[][] arr = new int[n][n];
+            for (int i = 0; i < arr.length; i++) {
+                for (int j = 0; j < arr.length; j++) {
+                    arr[i][j] = scan.nextInt();
+                }
+            }
+            d(arr);
+        }
+        static void d ( int[][] arr){
+            int sum = 0;
+            for (int i = 0; i < arr.length; i++) {
+                for (int j = 0; j < arr[i].length; j++) {
+                    if (i < j) {
+                        sum += arr[i][j];
+                    }
+                }
+            }
+            System.out.println("сумма высшей главной диагонали " + sum);
+        }
+        
+        
+        
+5. Напишите функцию, принимающую двумерный массив, которая ищет в двумерном массиве сумму элементов ниже побочной диагонали
+
+
+public static void main (String[]args){
+            Scanner scan = new Scanner(System.in);
+            int n = scan.nextInt();
+            int[][] arr = new int[n][n];
+            for (int i = 0; i < arr.length; i++) {
+                for (int j = 0; j < arr.length; j++) {
+                    arr[i][j] = scan.nextInt();
+                }
+            }
+            d(arr, n);
+        }
+        static void d ( int[][] arr, int n){
+            int sum1 = 0;
+            for (int i = 0; i < arr.length; i++) {
+                for (int j = 0; j < arr[i].length; j++) {
+                    if (i + j >= n) {
+                        sum1 += arr[i][j];
+                    }
+                }
+            }
+            System.out.println("сумма низшая " + sum1);
+        }
+        
+        
+        
+        
+6. Напишите функцию, принимающую двумерный массив, которая ищет максимум в двумерном массиве
+
+
+public static void main (String[]args){
+            Scanner scan = new Scanner(System.in);
+            int n = scan.nextInt();
+            int[][] arr = new int[n][n];
+            for (int i = 0; i < arr.length; i++) {
+                for (int j = 0; j < arr.length; j++) {
+                    arr[i][j] = scan.nextInt();
+                }
+            }
+            min(arr);
+        }
+        static void min ( int[][] arr){
+            int min = 10000000;
+            for (int i = 0; i < arr.length; i++) {
+                for (int j = 0; j < arr.length; j++) {
+                    if (min > arr[i][j]) {
+                        min = arr[i][j];
+                    }
+                }
+            }
+            System.out.println("Минимум " + min);
+        }
+        
+        
+7. Напишите функцию, принимающую двумерный массив, которая ищет минимум в двумерном массиве
+
+
+ public static void main (String[]args){
+            Scanner scan = new Scanner(System.in);
+            int n = scan.nextInt();
+            int[][] arr = new int[n][n];
+            for (int i = 0; i < arr.length; i++) {
+                for (int j = 0; j < arr.length; j++) {
+                    arr[i][j] = scan.nextInt();
+                }
+            }
+            max(arr);
+        }
+        static void max ( int[][] arr){
+            int max = 0;
+            for (int i = 0; i < arr.length; i++) {
+                for (int j = 0; j < arr.length; j++) {
+                    if (max < arr[i][j]) {
+                        max = arr[i][j];
+                    }
+                }
+            }
+            System.out.println("максимум " + max);
+        }
+        
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
