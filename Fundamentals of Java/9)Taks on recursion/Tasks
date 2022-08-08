@@ -1,1 +1,151 @@
 Задачи на рекурсию:
+
+
+1. Дано натуральное число N. Выведите все его цифры по одной, в обратном порядке, разделяя их пробелами или новыми строками.
+При решении этой задачи нельзя использовать строки, списки, массивы (ну и циклы, разумеется). 
+Разрешена только рекурсия и целочисленная арифметика.числите сумму его цифр
+
+public class MainJava {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        f(n);
+    }
+
+    static void f(int n) {
+        if (n > 0) {
+            System.out.print(n % 10);
+            n /= 10;
+            f(n);
+        }
+    }
+    
+}
+
+
+2. Дано натуральное число n. Выведите все числа от 1 до n.
+
+public class MainJava {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        output(n, 1);
+    }
+
+    static void output(int n, int i) {
+        System.out.println(i + " ");
+        if (i == n) {
+            return;
+        }
+        i++;
+        output(n, i);
+    }
+}
+
+
+3. Дано слово, состоящее только из строчных латинских букв. Проверьте, является ли это слово палиндромом. Выведите YES или NO.
+
+
+public class MainJava {
+    static String Palindrom (String s){
+        if (s.length() > 1 && s.charAt(0) == s.charAt(s.length() - 1)) {
+            return Palindrom(s.substring(1, s.length() - 1));
+        } else if (s.length() == 1 && s.charAt(0) == s.charAt(s.length() - 1)) {
+            return "YES";
+        } else if (s.length() < 1) {
+            return "YES";
+        } else {
+            return "NO";
+        }
+    }
+
+    public static void main (String[]args){
+
+        Scanner scan = new Scanner(System.in);
+
+        String s = scan.next();
+        System.out.println(Palindrom(s));
+    }
+}
+
+
+4. Дано натуральное число N. Вычислите сумму его цифр. При решении этой задачи нельзя использовать строки, списки, массивы (ну и циклы, разумеется).
+
+public class MainJava { 
+    static void main (String[]args){
+    Scanner scan = new Scanner(System.in);
+    int n = scan.nextInt();
+    int fr = f(n);
+        System.out.println(fr);
+}
+
+    static int f(int n) {
+        if (n == 0) {
+            return 0;
+        }
+        return n + f(n - 1);
+    }
+}
+
+
+5. Дано натуральное число N. Выведите слово YES, если число N является точной степенью двойки, или слово NO в противном случае.
+Операцией возведения в степень пользоваться нельзя!
+
+public class MainJava {
+    static double f ( double n){
+        if (n > 2) {
+            return f(n / 2);
+        } else if (n == 2) {
+            return 2;
+        } else if (n < 2) {
+            return 0;
+        } else return 0;
+    }
+
+    public static void main (String[]args){
+
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        double res = f(n);
+
+        if (res == 2) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
+        }
+
+    }
+}
+
+
+6. Дано натуральное число N. Выведите все его цифры по одной, в обычном порядке, разделяя их пробелами или новыми строками.
+При решении этой задачи нельзя использовать строки, списки, массивы (ну и циклы, разумеется).
+Разрешена только рекурсия и целочисленная арифметика.
+
+
+public class MainJava {
+    public static void main (String[]args){
+        Scanner scan = new Scanner(System.in); int n = scan.nextInt();
+
+        System.out.println(check(n));
+    }
+
+    static int check(int n) {
+        int c = 0;
+        int res = n;
+        if (res >= 10) {
+            while (res >= 10) {
+                res = res / 10;
+                c++;
+            }
+            System.out.println(res);
+            return check(n - res * ((int) Math.pow(10, c)));
+        } else if (res < 10) {
+            return res;
+        }
+        else {
+            return 0;
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
