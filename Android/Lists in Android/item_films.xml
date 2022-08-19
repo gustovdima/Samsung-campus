@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView 
+android:id="@+id/cv_About" 
+android:layout_width="match_parent"
+android:layout_height="140dp" 
+android:layout_below="@+id/cv_Help"
+android:layout_gravity="center"
+android:elevation="3dp"
+app:cardCornerRadius="17dp" 
+android:layout_marginLeft="10dp" 
+android:layout_marginRight="10dp" 
+card_view:cardBackgroundColor="@android:color/black"
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:card_view="http://schemas.android.com/tools">
+
+<FrameLayout 
+android:layout_width="match_parent"
+android:layout_height="160dp"
+android:padding="10dp"
+android:background="@color/grey" >
+
+<TextView
+    android:id="@+id/tvTitle"
+    android:layout_width="wrap_content"
+    android:layout_height="50dp"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="10dp"
+    android:text="Title"
+    android:layout_marginRight="30dp"
+    android:textColor="@color/white"
+    android:textSize="25dp"
+    android:textStyle="bold" />
+
+<TextView
+    android:id="@+id/tvId"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="ID"
+    android:textSize="30dp"
+    android:textColor="@color/black"
+    android:layout_gravity="left|top"
+    android:textStyle="italic" />
+
+<TextView
+    android:id="@+id/tvYear"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Year"
+    android:textStyle="italic"
+    android:layout_marginLeft="310dp"
+    android:layout_marginTop="20dp"
+    android:textSize="26dp"
+    android:textColor="@color/white" />
+
+<TextView
+    android:id="@+id/tvDirector"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="70dp"
+    android:text="Director"
+    android:textColor="@color/white"
+    android:textSize="25dp"
+    android:layout_marginRight="40dp"
+    android:textStyle="italic" />
+</FrameLayout>
+
+</androidx.cardview.widget.CardView>
